@@ -1,0 +1,77 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block content%}
+
+<div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
+  <div>
+      <div class="img_card">
+          <div class="row justify-content-center">
+              <div class="col-md-6 col-7 content_section">
+                  <!--=================== contact info and form start====================-->
+                  <div class="content_box">
+                      <div class="content_box_inner">
+                          <div>
+                              <h3>
+                                 Modificar Producto
+                              </h3>
+                              <p>
+                             Bienvenido a Cacharrerias Don Andres recuerde llenar muy bien los campos antes de Modificar un Producto 
+                              </p>
+                              <br>
+                              
+                              <div class="mt75 row justify-content-center">
+                                                      
+
+                                {% for producto in shelf %}
+
+                                <div class="grid-item branding col-sm-12 col-md-6 col-lg-3">
+                                <div class="card" style="width: 10rem;">
+                                <img class="card-img-top" src="{{ producto.imagen_producto }}">
+                                <div class="card-body">    
+                                <h5 class="card-title"><strong>{{ producto.nombre_producto }}</strong></h5>
+                                <p class="card-text"><strong>{{ producto.id_producto }}</strong></p>
+                                <p class="card-text"><strong>Categoria</strong>  <strong style="color: brown;">{{producto.codigo}}</strong> </p>
+                                <p class="card-text"><strong>Proveedor:</strong> <strong style="color: brown;">{{ producto.id_proveedor }}</strong></p>
+                                <p class="card-text"><strong>Estado :</strong> <strong style="color: brown;">{{ producto.estado_producto }}</strong></p>
+                                <p class="card-text"><strong>Cantidad:</strong> <strong style="color: brown;">{{ producto.cantidad_producto }}</strong></p>
+                                <p class="card-text"><strong>Precio:</strong> <strong style="color: brown;">{{ producto.precio_producto }}</strong></p>
+                                
+                               <center>
+                                <form action="/resulmodipro/{{producto.id_producto}}" method="GET">
+                                        <button type="submit" class="btn btn-primary">Edit</button>
+                                    </form>
+
+                                  </center>
+                                 <center> 
+                                  <form action="/eliminarproducto/{{producto.id_producto}}" method="GET">
+                                    <button type="submit" class="btn btn-primary" style="text-align: center;" style="width: 4rem;">Eliminar</button>
+                                </form>
+                              </center>
+                                </div>
+                              </div>
+                            </div>
+                            <br>
+                            
+                            {% endfor %}
+                        </div>
+
+
+                          </div>
+                      </div>
+                  </div>
+                  <!--=================== contact info and form end====================-->
+              </div>
+          </div>              
+        </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "padre.html" %}
+
+
+{% load static %}
+
+{% block title %}
+
+ <title>Proveedor</title>
+
+ {% endblock %}
+
+ {% block content%}
+
+<div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
+    <!--=================== filter portfolio start====================-->
+ <div class="portfolio gutters grid img-container align-content-center" >
+
+  
+ <br>     
+ <br>
+ <div class="mt75 row justify-content-center">
+
+     <form action="/agregarproveedor" method="GET">
+     <div class="col-lg-2 col-12">
+         <button type="submit" class="btn btn-primary">Agregar</button>
+     </div>
+     </form>
+     
+     <form action="/modiproveedor" method="GET">
+     <div class="col-lg-2 col-12">
+         <button type="submit" class="btn btn-primary">Modificar</button>
+     </div>
+     </form>
+     
+     <form action="/eliminarproveedor" method="GET">
+     <div class="col-lg-2 col-12">
+         <button type="submit" class="btn btn-primary">Eliminar</button>
+     </div>
+     </form>
+ </div>
+ 
+ <br>     
+ <br>
+
+ 
+ <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">Last</th>
+        <th scope="col">Handle</th>
+      </tr>
+    </thead>
+    <tbody>
+
+         
+      {% for i in proveedores %}
+
+      <tr>
+        
+        <th scope="row">{{i.id_proveedor}}</th>
+        <td>{{i.nombre_proveedor}}</td>
+        <td>{{i.cantidad_articulos}}</td>
+        <td>{{i.precio_producto}}</td>
+
+      </tr>
+    
+        {% endfor %}
+       
+      </tbody>
+  </table>
+
+ </div>
+</div> 
+ {% endblock %}

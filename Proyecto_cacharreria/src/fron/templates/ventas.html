@@ -1,0 +1,107 @@
+{% extends "padre.html" %}
+
+
+{% load static %}
+
+{% block title %}
+
+ <title>Ventas</title>
+
+ {% endblock %}
+
+ {% block content%}
+
+<div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
+    <!--=================== filter portfolio start====================-->
+ <div class="portfolio gutters grid img-container align-content-center" >
+
+  
+ <br>     
+ <br>
+ <div class="mt75 row justify-content-center">
+
+     <form action="/agregarventa" method="GET">
+     <div class="col-lg-2 col-12">
+         <button type="submit" class="btn btn-primary">Venta  Corriente</button>
+     </div>
+     </form>
+
+     <form action="/agregarcredito" method="GET">
+      <div class="col-lg-2 col-12">
+          <button type="submit" class="btn btn-primary">Venta a Credito</button>
+      </div>
+      </form>
+      
+     <form action="/modigeneral" method="GET">
+     <div class="col-lg-2 col-12">
+         <button type="submit" class="btn btn-primary">Modificar</button>
+     </div>
+     </form>
+      
+     <form action="/reporte_ventas" method="GET">
+      <div class="col-lg-2 col-12">
+          <button type="submit" class="btn btn-primary">Reporte</button>
+      </div>
+      </form>
+ </div>
+ 
+ <br>     
+ <br>
+
+ <span class="label label-primary">Ventas Corriente</span>
+
+ <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Empleado</th>
+        <th scope="col">Monto</th>
+        <th scope="col">Producto</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+      {% for i in ventas %}
+
+      <tr>
+        <th scope="row">{{i.id_venta}}</th>
+        <td>{{i.id_cliente}}</td>
+        <td>{{i.id_usuario}}</td>
+        <td>{{i.monto_venta}}</td>
+        <td>{{i.id_producto}}</td>
+      </tr>
+    
+        {% endfor %}
+    </tbody>
+  </table>
+
+  <span class="label label-primary">Ventas Credito</span>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Cliente</th>
+        <th scope="col">Empleado</th>
+        <th scope="col">Producto</th>
+      </tr>
+    </thead>
+    <tbody>
+        
+      {% for s in creditos %}
+      <tr>
+        <th scope="row">{{s.id_credito}}</th>
+        <td>{{s.id_producto}}</td>
+        <td>{{s.id_cliente}}</td>
+        <td>{{s.saldo_pendiente}}</td>
+      </tr>
+    
+        {% endfor %}
+    </tbody>
+  </table>
+
+
+ </div>
+</div> 
+ {% endblock %}

@@ -1,0 +1,82 @@
+{% extends "padre.html" %} 
+
+{% load static %}
+
+  {% block title %}
+  
+  <title>Productos Andres</title>  
+   
+  {% endblock %}
+  
+ {% block content%}
+
+
+ <div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
+    <!--=================== filter portfolio start====================-->
+ <div class="portfolio gutters grid img-container align-content-center" >
+  
+        <form action="/buscar/" method="GET">
+            <div class="mt75 row justify-content-center" align="right">
+                <div class="col-lg-6 col-12">
+                    <input type="text" name="producto" placeholder="Nombre Producto" class="form-control">
+                </div>
+                <div class="col-lg-2 col-12">
+                    <button type="submit" class="btn btn-primary">Buscar</button>
+                </div>    
+                 
+            </div>
+        </form>
+
+        
+        <div class="mt75 row justify-content-center">
+
+            <form action="/agregarproducto" method="GET">
+            <div class="col-lg-2 col-12">
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            </div>
+            </form>
+            
+            <form action="/modiproducto" method="GET">
+            <div class="col-lg-2 col-12">
+                <button type="submit" class="btn btn-primary">Modificar</button>
+            </div>
+            </form>
+            
+        </div>
+            <br>
+            <br>
+                    <!--=================== filter portfolio start====================-->
+        <div class="portfolio gutters grid img-container">
+            {% for i in productos %}    
+ 
+            <div class="grid-item branding col-sm-12 col-md-6 col-lg-3">
+                <div class="grid-sizer col-sm-12 col-md-6 col-lg-3"></div>
+         
+                <a href="{{i.imagen_producto}}" title="<strong style=color:coral >{{i.nombre_producto}}</strong><br><br>$ {{i.precio_producto}}
+                    <br><br>Cantidad: {{i.cantidad_producto}}<br><br>Categoria: {{i.codigo}}">
+
+
+                    <div class="project_box_one">
+                      <img src="{{i.imagen_producto}}" alt="pro1" />
+                        <div class="product_info">
+                            <div class="product_info_text">
+                                <div class="product_info_text_inner">
+                                    <i class="ion ion-plus"></i>
+                                    <h3 style="color: cornsilk;">{{i.nombre_producto}}</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </a>
+
+            </div>
+            {% endfor %}
+
+
+
+    </div>
+    
+ </div>     
+ {% endblock %}
+    

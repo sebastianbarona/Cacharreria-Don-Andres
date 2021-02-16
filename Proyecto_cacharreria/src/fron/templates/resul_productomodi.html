@@ -1,0 +1,63 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+<div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
+    <div>
+        <div class="img_card">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-7 content_section">
+                    <div class="content_box">
+                        <div class="content_box_inner">
+                            <div>
+                                <h3>
+                                   Modificar Producto
+                                </h3>
+                                <p>
+                               Bienvenido a Cacharrerias Don Andres recuerde llenar muy bien los campos antes de Modificar un Producto
+                                </p>
+                                
+                                <br>
+                                <div class="mt75 row justify-content-center">
+                                    <br>
+                                    <br>
+
+                                    {% if miformulario.errors %}
+
+                                    <div class="alert alert-danger" role="alert">No Registrado</div>
+                  
+                                    {% endif %}
+    
+                                    <div class="alert alert-light" role="alert">{{mensaje}}</div>
+                                 
+
+                                    <center>
+                                        <form method = 'POST' enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                            <div class = "mt75 row justify-content-center" >
+                                                
+                                                <table>{{miformulario.as_table}}</table>
+                                    
+                                            </div>                                            
+                                            <button type="submit" class="btn btn-lg btn-warning">Submit</button>
+                                        </form>
+                                    </center>
+                                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    </div>
+</div>
+{% endblock %}

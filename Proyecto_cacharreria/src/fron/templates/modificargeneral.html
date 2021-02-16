@@ -1,0 +1,53 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+
+{% block title %}
+
+{% endblock %}
+
+
+{% block content%}
+
+<div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
+  <div>
+      <div class="img_card">
+          <div class="row justify-content-center">
+              <div class="col-md-6 col-7 content_section">
+                  <!--=================== contact info and form start====================-->
+                  <div class="content_box">
+                      <div class="content_box_inner">
+                          <div>
+                              <h3>
+                                 Modificar Venta
+                              </h3>
+                              <p>
+                             Bienvenido a Cacharrerias Don Andres Por Favor eliga que tipo de Venta desea Modificar 
+                              </p>
+                              <br>
+                              <form action="/modiventa" method="GET">
+                                <div class="col-lg-2 col-12">
+                                    <button type="submit" class="btn btn-primary">Modificar Corriente</button>
+                                </div>
+                                </form>
+                           
+                                <form action="/modicredito" method="GET">
+                                 <div class="col-lg-2 col-12">
+                                     <button type="submit" class="btn btn-primary">Modificar Credito</button>
+                                 </div>
+                                 </form>
+                           
+                            
+
+                          </div>
+                      </div>
+                  </div>
+                  <!--=================== contact info and form end====================-->
+              </div>
+          </div>              
+        </div>
+  </div>
+</div>
+
+{% endblock %}

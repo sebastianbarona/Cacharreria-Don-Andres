@@ -1,0 +1,31 @@
+<html>
+
+    {% load static %}
+    
+ <link href="{% static 'css/login.css' %}" rel="stylesheet">
+
+<title>Login</title>
+
+<body>
+
+    
+    <div class="login-page">
+        <div class="form">
+            {% for usua in shelf %}
+
+            <form class="login-form" action="/verificacion/{{usua.id_persona}}" method="POST">{% csrf_token %}
+                {% endfor %}
+
+            <input type="text" placeholder="ID"/>
+            <input type="password" placeholder="password"/>
+            <button>login</button>
+        </form>
+    </div>
+    </div>
+
+    <script src="{% static 'js/js_login.js' %}"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+{% extends "padre.html" %}
+
+{% load static %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content%}
+<div class="col-lg-10 col-md-9 col-12 body_block  align-content-center">
+    <div>
+        <div class="img_card">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-7 content_section">
+                    <div class="content_box">
+                        <div class="content_box_inner">
+                            <div>
+                                <h3>
+                                   Agregar Producto
+                                </h3>
+                                <p>
+                               Bienvenido a Cacharrerias Don Andres recuerde llenar muy bien los campos antes de registrar un Usuario 
+                                </p>
+                                
+                                <br>
+                                
+                                  
+                                <div class="mt75 row justify-content-center">
+                                    <br>
+                                    <br>
+
+                                    {% if miformulario.errors %}
+
+                                    <div class="alert alert-danger" role="alert">No Registrado</div>
+                  
+                                    {% else %}
+
+                                    <div class="alert alert-light" role="alert">{{mensaje}}</div>
+                  
+                                    {% endif %}
+    
+                                 
+                                    <div class="col-12">
+                                        <br>
+                                        <form action="/procesar_producto" method="POST" >{% csrf_token %}
+                                            
+                                            <table>{{miformulario.as_table}}</table>
+    
+                                            <button type="submit" class="btn btn-primary">Enviar</button>
+    
+                                    </form>
+                                    </div>
+    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    
+    
+    </div>
+</div>
+{% endblock %}
